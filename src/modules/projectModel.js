@@ -6,3 +6,5 @@ function projectModel (name) {
 
     return {getName, setName};
 }
+
+export default projectModel;
