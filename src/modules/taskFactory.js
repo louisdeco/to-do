@@ -9,6 +9,7 @@ const taskFactory = (function () {
     }
 
     const getTasks = () => _taskArray;
+    
     return {createTask, getTasks};
 })();
 
