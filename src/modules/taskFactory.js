@@ -1,16 +1,13 @@
 import taskModel from "./taskModel";
 
 const taskFactory = (function () {
-    const _taskArray = [];
 
     const createTask = (title, description, dueDate, priority, isDone = false) => {
        const task = taskModel(title, description, dueDate, priority, isDone);
-        _taskArray.push(task);
+       return task;
     }
-
-    const getTasks = () => _taskArray;
     
-    return {createTask, getTasks};
+    return {createTask};
 })();
 
 export default taskFactory;
