@@ -1,11 +1,10 @@
 import projectModel from "./projectModel";
 
 const projectFactory = (function () {
-    const _projectArray = [];
     
     const createProject = (name) => {
         const project = projectModel(name);
-        _projectArray.push(project);
+        return project;
     }
 
     const getProject = () => _projectArray;
