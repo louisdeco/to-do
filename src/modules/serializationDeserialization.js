@@ -1,8 +1,9 @@
 import taskModel from "./taskModel";
+import projectModel from "./projectModel";
 
 const serializatorDeserializator = (function (task) {
 
-    const serialize = (task) => ({
+    const serializeTask = (task) => ({
         title: task.getTitle(),
         description: task.getDescription(),
         dueDate: task.getDueDate(),
@@ -10,7 +11,7 @@ const serializatorDeserializator = (function (task) {
         isDone: task.getIsDone(),
     })
 
-    const deserialize = (taskSerialized) => {
+    const deserializeTask = (taskSerialized) => {
         return taskModel(
             taskSerialized.title,
             taskSerialized.description,
@@ -20,7 +21,17 @@ const serializatorDeserializator = (function (task) {
         )
     };
 
-    return {serialize, deserialize}
+    const serializeProject = (project) => ({
+        name: project.getName()
+    })
+
+    const deserializeProject = (projectSerialized) => {
+        return projectModel(
+            projectSerialized.name
+        )
+    }
+
+    return {serializeTask, deserializeTask, serializeProject, deserializeProject};
 })();
 
 export default serializatorDeserializator;
