@@ -9,7 +9,11 @@ const localStorageService = (function () {
         return state ? JSON.parse(state) : null;
     };
 
-    return {saveState, loadState};
+    const deleteState = () => {
+        localStorage.clear();
+    }
+
+    return {saveState, loadState, deleteState};
 })();
 
 export default localStorageService;
