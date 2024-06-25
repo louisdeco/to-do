@@ -105,9 +105,15 @@ header p {
     font-size: calc(0.4rem + 1.5vw);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-m);
+    justify-content: space-between;
     font-weight: lighter;
     border-right: solid black 0.01rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
 }
 
 .projects {
@@ -115,7 +121,7 @@ header p {
     font-size: calc(0.5rem + 1vw);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-m);
+    gap: var(--spacing-s);
 }
 
 .side-nav p:hover::before {
@@ -125,4 +131,96 @@ header p {
 
 .side-nav p:hover {
     font-weight: normal;
+}
+
+.side-nav p {
+    cursor: pointer;
+}
+
+.add {
+    height: calc(3.5rem + 1vw);
+    width: calc(3.5rem + 1vw);
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: calc(2rem + 1vw);
+    color: white;
+    background-color: #b5e2ff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.add:hover {
+    filter: brightness(90%);
+}
+
+
+/* Content */
+.content {
+    padding: var(--spacing-xxl);
+    display: grid;
+    grid-template-rows: min-content;
+    gap: var(--spacing-s);
+}
+
+/* Task */
+.task {
+    display: flex;
+    height: calc(1rem + 2vw);
+    width: 100%;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    padding: var(--spacing-l);
+    border-left: 3px solid green;
+    font-size: calc(0.4rem + 0.8vw);
+}
+
+.left, .right {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.right {
+    font-size: calc(0.2rem + 0.8vw);
+}
+
+input[type="checkbox"] {
+    width: calc(0.6rem + 0.5vw);
+    height: calc(0.6rem + 0.5vw);
+    accent-color: #3ba395;
+    border-color: #3ba395;
+    cursor: pointer;
+}
+
+.details {
+    background-color: inherit;
+    border-radius: 0.2rem;
+    color: #3ba395;
+    border: 1px solid #3ba395;
+    cursor: pointer;
+}
+
+.details:hover {
+    background-color: #3ba395;
+    color: white;
+}
+
+.edit, .delete {
+    width: calc(0.4rem + 1vw);
+    height: calc(0.4rem + 1vw);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.edit:hover, .delete:hover {
+    filter: invert(57%) sepia(8%) saturate(2712%) hue-rotate(122deg) brightness(96%) contrast(89%);
+}
+
+.edit {
+    background-image: url("../assets/text-box-edit-outline.svg");
+}
+
+.delete {
+    background-image: url("../assets/trash-can-outline.svg");
 }
