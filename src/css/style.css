@@ -148,10 +148,12 @@ header p {
     border: none;
     cursor: pointer;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
 .add:hover {
     filter: brightness(90%);
+    transform: scale(1.1);
 }
 
 
@@ -171,8 +173,25 @@ header p {
     justify-content: space-between;
     background-color: #f2f2f2;
     padding: var(--spacing-l);
-    border-left: 3px solid green;
     font-size: calc(0.4rem + 0.8vw);
+    transition: all 0.3s ease;
+}
+
+.low {
+    border-left: 3px solid green;
+}
+
+.medium {
+    border-left: 3px solid orange;
+}
+
+.high {
+    border-left: 3px solid red;
+}
+
+.task:hover {
+    transform: scale(1.009);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .left, .right {
