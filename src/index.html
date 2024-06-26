@@ -11,16 +11,73 @@
         <div class="icon"></div>
     </header>
     <div class="side-nav">
-        <p>Today</p>
-        <p>Week</p>
-        <p>Projects</p>
-        <div class="projects">
-            <p>Gym</p>
-            <p>Renovation</p>
+        <div class="nav">
+            <p>Today</p>
+            <p>Week</p>
+            <p>Projects</p>
+            <div class="projects">
+                <p>Gym</p>
+                <p>Renovation</p>
+            </div>
         </div>
+        <button class="add">+</button>
     </div>
     <div class="content">
-        
+        <div class="task high">
+            <div class="left">
+                <input type="checkbox">
+                <div class="title">clean the bedroom</div>
+            </div>
+            <div class="right">
+                <button class="details">DETAILS</button>
+                <div class="date">Jun 24th</div>
+                <div class="edit"></div>
+                <div class="delete"></div>
+            </div>
+        </div>
+        <div class="task low">
+            <div class="left">
+                <input type="checkbox">
+                <div class="title">clean the bedroom</div>
+            </div>
+            <div class="right">
+                <button class="details">DETAILS</button>
+                <div class="date">Jun 24th</div>
+                <div class="edit"></div>
+                <div class="delete"></div>
+            </div>
+        </div>
     </div>
+    <dialog class="form">
+        <form class="add-element" method="dialog">
+            <div class="create">Create a new...</div>
+            <div class="side-form">
+                <p>Task</p>
+                <p>Project</p>
+                <p>Note</p>
+            </div>
+            <div class="task-form">
+                <div class="upper-part-form">
+                    <textarea class="create-new-task-text" name="new-task" id="new-title" maxlength="60" placeholder="Title: Daily exercise" required></textarea>
+                    <textarea class="create-new-task-text" name="new-task" id="new-details" placeholder="Details: e.g gym, run, foil." required></textarea>
+                </div>
+                <div class="bottom-part-form">
+                    <div class="create-new-date">
+                        <label for="date-row" class="date-label">Due Date:</label>
+                        <input type="date" class="create-new-date" name="new-task" id="date-row" required>
+                    </div>
+                    <div class="priority-submit">
+                        <div class="create-new-priority">
+                            <legend class="priority-label">Priority:</legend>
+                            <input class="low" type="radio" name="priority" id="priority-low" value="Low" required><label for="priority-low">LOW</label>
+                            <input type="radio" name="priority" id="priority-medium" value="Medium" required><label for="priority-medium">MEDIUM</label>
+                            <input type="radio" name="priority" id="priority-high" value="High" required><label for="priority-high">HIGH</label>
+                        </div>
+                        <button class="submit-form">ADD TO DO</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
