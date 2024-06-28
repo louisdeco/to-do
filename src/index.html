@@ -105,5 +105,30 @@
             <div class="informations-input">Don't forget under the bed!</div>
         </div>
     </dialog>
+    <dialog class="dialog-edit">
+        <form class="edit-element" method="dialog">
+            <div class="task-form">
+                <div class="upper-part-form">
+                    <textarea class="create-new-text" name="new-task" id="new-title" maxlength="60" placeholder="Title: Daily exercise" required></textarea>
+                    <textarea class="create-new-text" name="new-task" id="new-details" placeholder="Details: e.g gym, run, foil." required></textarea>
+                </div>
+                <div class="bottom-part-form">
+                    <div class="create-new-date">
+                        <label for="date-row" class="date-label">Due Date:</label>
+                        <input type="date" class="create-new-date" name="new-task" id="date-row" required>
+                    </div>
+                    <div class="priority-submit">
+                        <div class="create-new-priority">
+                            <legend class="priority-label">Priority:</legend>
+                            <input type="radio" name="priority" id="priority-low" value="Low" required><label for="priority-low">LOW</label>
+                            <input type="radio" name="priority" id="priority-medium" value="Medium" required><label for="priority-medium">MEDIUM</label>
+                            <input type="radio" name="priority" id="priority-high" value="High" required><label for="priority-high">HIGH</label>
+                        </div>
+                        <button class="submit-form">ADD TO DO</button>
+                    </div>
+                </div>
+            </div>
+        </form>        
+    </dialog>
 </body>
 </html>
