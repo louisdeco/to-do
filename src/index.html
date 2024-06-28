@@ -29,8 +29,8 @@
                 <div class="title">clean the bedroom</div>
             </div>
             <div class="right">
-                <button class="details">DETAILS</button>
-                <div class="date">Jun 24th</div>
+                <button class="button-details">DETAILS</button>
+                <div class="date">June 24th</div>
                 <div class="edit"></div>
                 <div class="delete"></div>
             </div>
@@ -41,14 +41,14 @@
                 <div class="title">clean the bedroom</div>
             </div>
             <div class="right">
-                <button class="details">DETAILS</button>
-                <div class="date">Jun 24th</div>
+                <button class="button-details">DETAILS</button>
+                <div class="date">June 24th</div>
                 <div class="edit"></div>
                 <div class="delete"></div>
             </div>
         </div>
     </div>
-    <dialog class="form">
+    <dialog class="dialog-form">
         <form class="add-element" method="dialog">
             <div class="create">Create a new...</div>
             <div class="side-form">
@@ -58,8 +58,8 @@
             </div>
             <div class="task-form">
                 <div class="upper-part-form">
-                    <textarea class="create-new-task-text" name="new-task" id="new-title" maxlength="60" placeholder="Title: Daily exercise" required></textarea>
-                    <textarea class="create-new-task-text" name="new-task" id="new-details" placeholder="Details: e.g gym, run, foil." required></textarea>
+                    <textarea class="create-new-text" name="new-task" id="new-title" maxlength="60" placeholder="Title: Daily exercise" required></textarea>
+                    <textarea class="create-new-text" name="new-task" id="new-details" placeholder="Details: e.g gym, run, foil." required></textarea>
                 </div>
                 <div class="bottom-part-form">
                     <div class="create-new-date">
@@ -69,7 +69,7 @@
                     <div class="priority-submit">
                         <div class="create-new-priority">
                             <legend class="priority-label">Priority:</legend>
-                            <input class="low" type="radio" name="priority" id="priority-low" value="Low" required><label for="priority-low">LOW</label>
+                            <input type="radio" name="priority" id="priority-low" value="Low" required><label for="priority-low">LOW</label>
                             <input type="radio" name="priority" id="priority-medium" value="Medium" required><label for="priority-medium">MEDIUM</label>
                             <input type="radio" name="priority" id="priority-high" value="High" required><label for="priority-high">HIGH</label>
                         </div>
@@ -77,7 +77,33 @@
                     </div>
                 </div>
             </div>
+            <!-- <div class="task-form">
+                <textarea class="create-new-text" name="new-project" id="new-title" maxlength="40" placeholder="Name: Modify the house" required></textarea>
+                <button class="submit-form project">ADD PROJECT</button>
+            </div> -->
+            <!-- <div class="task-form">
+                <div class="upper-part-form">
+                    <textarea class="create-new-text" name="new-note" id="new-title" maxlength="40" placeholder="Title" required></textarea>
+                    <textarea class="create-new-text" name="new-note" id="new-details" placeholder="Details" required></textarea>
+                </div>
+                <button class="submit-form project">ADD NOTE</button>
+            </div> -->
         </form>
+    </dialog>
+    <dialog class="dialog-details">
+        <div class="details title">clean the bedroom</div>
+        <div class="details project">Project:
+            <div class="project-input">None</div>
+        </div>
+        <div class="details priority">Priority:
+            <div class="priority-input">High</div>
+        </div>
+        <div class="details date">Date:
+            <div class="date-input">June 12th, 2024</div>
+        </div>
+        <div class="details informations">Details:
+            <div class="informations-input">Don't forget under the bed!</div>
+        </div>
     </dialog>
 </body>
 </html>

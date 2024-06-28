@@ -217,15 +217,16 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-.details {
+.button-details {
     background-color: inherit;
     border-radius: 0.2rem;
     color: #3ba395;
     border: 1px solid #3ba395;
     cursor: pointer;
+    outline: none;
 }
 
-.details:hover {
+.button-details:hover {
     background-color: #3ba395;
     color: white;
 }
@@ -250,12 +251,13 @@ input[type="checkbox"] {
 }
 
 /* Dialog */
-dialog[open] {
+.dialog-form[open],
+.dialog-details[open] {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
 
-dialog {
+.dialog-form{
     opacity: 0;
     transform: scale(0);
     height: 55%;
@@ -268,11 +270,12 @@ dialog {
 }
 
 @starting-style {
-    dialog[open] {
+    .dialog-form[open],
+    .dialog-details[open] {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0);
     }
-  }
+}
 
 ::backdrop {
     backdrop-filter: blur(5px);
@@ -330,7 +333,7 @@ form {
     gap: var(--spacing-l);
 }
 
-.create-new-task-text {
+.create-new-text {
     border: none;
     resize: none;
     outline: none;
@@ -372,6 +375,12 @@ input[type="date"] {
     padding: 4px 10px;
     cursor: pointer;
     outline: none;
+    transition: all 0.2s ease;
+}
+
+input[type="date"]:hover {
+    background-color: #3ba395;
+    color: white;
 }
 
 .priority-submit {
@@ -380,10 +389,9 @@ input[type="date"] {
 }
 
 input[type="radio"] {
-    position: relative;
-    top: -25%;
-    right: -12%;
+    position: absolute;
     z-index: -1;
+    right: 61%;
 }
 
 .create-new-priority {
@@ -455,4 +463,52 @@ input[type="radio"]:hover + label[for="priority-high"] {
 .submit-form:hover {
     background-color: #3ba395;
     color: white;
+}
+
+/* Project form */
+.project {
+    width: fit-content;
+}
+
+/* Dialog details */
+.dialog-details{
+    opacity: 0;
+    transform: scale(0);
+    width: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 0.2rem;
+    transition: all 0.4s ease;
+    background-color: rgba(211, 210, 211, 0.9);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+    padding: var(--spacing-l);
+    display: flex;
+    flex-direction: column;
+}
+
+.details {
+    display: flex;
+    font-weight: 500;
+}
+
+.details.title {
+    font-size: calc(1rem + 1vw);
+    font-weight: 400;
+}
+
+.project-input,
+.priority-input {
+    margin-left: 2rem;
+    font-weight: lighter;
+}
+
+.date-input {
+    margin-left: 3.2rem;
+    font-weight: lighter;
+}
+
+.informations-input {
+    margin-left: 2.2rem;
+    font-weight: lighter;
 }
