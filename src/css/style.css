@@ -317,7 +317,10 @@ input[type="checkbox"] {
 
 
 /* Task form */
-.task-form {
+.task-form,
+.project-form,
+.note-form,
+.edit-form {
     background-color: white;
     padding: var(--spacing-l);
     display: flex;
@@ -342,12 +345,15 @@ input[type="checkbox"] {
     font-weight: lighter;
 }
 
-#new-title {
+#task-title,
+#note-title,
+#project-title {
     font-size: calc(0.6rem + 1vw);
     height: calc(2rem + 1vw);
 }
 
-#new-details {
+#task-details,
+#note-details {
     height: calc(10rem + 1vw);
 }
 
