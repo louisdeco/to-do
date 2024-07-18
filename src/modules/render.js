@@ -7,7 +7,7 @@ const render = (function () {
 
     const createTaskElement = (task) => {
         const taskDiv = document.createElement("div");
-        taskDiv.className = `task ${task.getPriority()}`;
+        taskDiv.className = `task ${task.getPriority().toLowerCase()}`;
         taskDiv.innerHTML = `
             <div class="left">
                 <input type="checkbox" name="check-task">
