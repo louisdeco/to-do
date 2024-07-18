@@ -1,4 +1,5 @@
 import stateActions from "./stateActions";
+import {format} from "date-fns";
 
 const render = (function () {
     const content = document.querySelector(".content");
@@ -14,7 +15,7 @@ const render = (function () {
             </div>
             <div class="right">
                 <button class="button-details">DETAILS</button>
-                <div class="date">${task.getDueDate()}</div>
+                <div class="date">${format(task.getDueDate(), "MMM do")}</div>
                 <div class="edit"></div>
                 <div class="delete"></div>
             </div>
