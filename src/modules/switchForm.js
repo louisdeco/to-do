@@ -10,13 +10,28 @@ const switchForm = (function () {
             section.addEventListener("click", () => {
                 switchForm(section.textContent.toLowerCase());
             });
+        });
+        switchForm("task");
+    }
+
+    const setRequiredAttributes = (formType, isRequired) => {
+        const formElements = formType.querySelectorAll("input, textarea, select");
+        formElements.forEach(element => {
+            if (isRequired) {
+                element.setAttribute("required", "");
+            }
+            else {
+                element.removeAttribute("required");
+            }
         })
     }
 
     const switchForm = (formType) => {
         taskForm.style.display = (formType === "task") ? "flex" : "none";
         projectForm.style.display = (formType === "project") ? "flex" : "none";
-        noteForm.style.display = (formType === "note") ? "flex" : "none";
+        
+        setRequiredAttributes(taskForm, formType === "task");
+        setRequiredAttributes(projectForm, formType === "project")
     }
 
     return {init};
