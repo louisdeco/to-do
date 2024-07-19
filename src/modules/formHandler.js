@@ -1,7 +1,6 @@
 import stateActions from "./stateActions";
 import render from "./render";
 import switchForm from "./switchForm";
-import { set } from "date-fns/fp/set";
 
 const formHandler = (function () {
     const form = document.querySelector(".add-element")
