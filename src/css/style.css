@@ -418,35 +418,44 @@ input[type="radio"] {
     transition: all 0.2s ease;
 }
 
-input[type="radio"]+ label[for="priority-low"] {
+input[type="radio"]+ label[for="priority-low"], 
+input[type="radio"]+ label[for="priority-low-edit"] {
     border-color: green;
     color: green;
 }
 
-input[type="radio"]+ label[for="priority-medium"] {
+input[type="radio"]+ label[for="priority-medium"],
+input[type="radio"]+ label[for="priority-medium-edit"]  {
     border-color: orange;
     color: orange;
 }
 
-input[type="radio"]+ label[for="priority-high"] {
+input[type="radio"]+ label[for="priority-high"],
+input[type="radio"]+ label[for="priority-high-edit"]  {
     border-color: red;
     color: red;
 }
 
 input[type="radio"]:checked + label[for="priority-low"],
-input[type="radio"]:hover + label[for="priority-low"] {
+input[type="radio"]:checked + label[for="priority-low-edit"],
+input[type="radio"]:hover + label[for="priority-low"],
+input[type="radio"]:hover + label[for="priority-low-edit"] {
     background-color: green;
     color: white;
 }
 
 input[type="radio"]:checked + label[for="priority-medium"],
-input[type="radio"]:hover + label[for="priority-medium"] {
+input[type="radio"]:checked + label[for="priority-medium-edit"],
+input[type="radio"]:hover + label[for="priority-medium"],
+input[type="radio"]:hover + label[for="priority-medium-edit"] {
     background-color: orange;
     color: white;
 }
 
 input[type="radio"]:checked + label[for="priority-high"],
-input[type="radio"]:hover + label[for="priority-high"] {
+input[type="radio"]:checked + label[for="priority-high-edit"],
+input[type="radio"]:hover + label[for="priority-high"],
+input[type="radio"]:hover + label[for="priority-high-edit"] {
     background-color: red;
     color: white;
 }
@@ -516,7 +525,7 @@ input[type="radio"]:hover + label[for="priority-high"] {
     font-weight: lighter;
 }
 
-.informations-input {
+.information-input {
     margin-left: 2.2rem;
     font-weight: lighter;
 }
