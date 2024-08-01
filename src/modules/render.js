@@ -1,4 +1,5 @@
 import stateActions from "./stateActions";
+import taskInteractivity from "./taskInteractivy";
 import {format} from "date-fns";
 
 const render = (function () {
@@ -36,6 +37,7 @@ const render = (function () {
             const taskElement = createTaskElement(task);
             content.appendChild(taskElement);
         });
+        taskInteractivity.init();
     };
 
     const renderProjects = () => {
