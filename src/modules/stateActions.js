@@ -28,6 +28,8 @@ const stateActions = (function () {
 
     const getProject = (name) => _projects.find(project => project.getName() === name);
 
+    const saveTasks = () => localStorageService.saveState("tasks", _tasks.map(task => serializatorDeserializator.serializeTask(task)));
+
     const deleteTask = (title) => {
         _tasks = _tasks.filter(task => task.getTitle() !== title);
         localStorageService.saveState("tasks", _tasks.map(task => serializatorDeserializator.serializeTask(task)));
@@ -43,7 +45,7 @@ const stateActions = (function () {
         _tasks = []
     };
 
-    return {addTask, addProject, getTasks, getProjects, getTask, getProject, deleteTask, deleteProject, clearStorage}
+    return {addTask, addProject, getTasks, getProjects, getTask, getProject, saveTasks, deleteTask, deleteProject, clearStorage}
 })();
 
 export default stateActions;
