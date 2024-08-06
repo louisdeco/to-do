@@ -11,7 +11,7 @@ const render = (function () {
         taskDiv.className = `task ${task.getPriority().toLowerCase()}`;
         taskDiv.innerHTML = `
             <div class="left">
-                <input type="checkbox" name="check-task">
+                <input type="checkbox" name="check-task" ${task.getIsDone() ? 'checked' : ''}>
                 <div class="title">${task.getTitle()}</div>
             </div>
             <div class="right">
@@ -21,6 +21,9 @@ const render = (function () {
                 <div class="delete"></div>
             </div>
         `;
+        if (task.getIsDone()) {
+            taskDiv.innerHTML += '<div class="done"></div>';
+        }
         return taskDiv;
     };
 
