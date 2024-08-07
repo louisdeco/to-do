@@ -166,7 +166,7 @@ header p {
 .content {
     padding: var(--spacing-xxl);
     display: grid;
-    grid-template-rows: min-content;
+    grid-auto-rows: min-content;
     gap: var(--spacing-s);
 }
 
