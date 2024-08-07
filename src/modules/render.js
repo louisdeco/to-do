@@ -8,6 +8,7 @@ const render = (function () {
 
     const createTaskElement = (task) => {
         const taskDiv = document.createElement("div");
+        taskDiv.dataset.taskId = task.getId();
         taskDiv.className = `task ${task.getPriority().toLowerCase()}`;
         taskDiv.innerHTML = `
             <div class="left">
