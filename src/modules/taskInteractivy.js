@@ -106,14 +106,13 @@ const taskInteractivity = (function () {
 
         if (isChecked) {
             taskBackend.setIsDone(true);
-            render.renderTasks()
         }
 
         else if (taskDom.querySelector(".done")) {
             taskBackend.setIsDone(false);
-            render.renderTasks()
         }
 
+        render.renderTasks()
         stateActions.saveTasks()
     }
 
