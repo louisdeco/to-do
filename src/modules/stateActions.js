@@ -24,14 +24,14 @@ const stateActions = (function () {
 
     const getTasks = () => _tasks;
 
-    const getTask = (title) => _tasks.find(task => task.getTitle() === title);
+    const getTask = (id) => _tasks.find(task => task.getId() === id);
 
     const getProject = (name) => _projects.find(project => project.getName() === name);
 
     const saveTasks = () => localStorageService.saveState("tasks", _tasks.map(task => serializatorDeserializator.serializeTask(task)));
 
-    const deleteTask = (title) => {
-        _tasks = _tasks.filter(task => task.getTitle() !== title);
+    const deleteTask = (id) => {
+        _tasks = _tasks.filter(task => task.getId() !== id);
         localStorageService.saveState("tasks", _tasks.map(task => serializatorDeserializator.serializeTask(task)));
     };
 

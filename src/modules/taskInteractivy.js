@@ -19,11 +19,11 @@ const taskInteractivity = (function () {
     };
     
     const deleteTask = (task) => {
-        const title = task.querySelector(".title").textContent;
+        const taskId = task.getAttribute("data-task-id");
         const deleteButton = task.querySelector(".delete");
 
         deleteButton.addEventListener("click", () => {
-            stateActions.deleteTask(title);
+            stateActions.deleteTask(taskId);
             render.renderTasks();
         });
     };
@@ -31,18 +31,18 @@ const taskInteractivity = (function () {
     const showDetails = (task) => {
         const detailsDialog = document.querySelector(".dialog-details");
         const detailsButton = task.querySelector(".button-details");
-        const title = task.querySelector(".title").textContent;
+        const taskId = task.getAttribute("data-task-id");
 
         detailsButton.addEventListener("click", () => {
-            editDetailsDialog(title, detailsDialog);
+            editDetailsDialog(taskId, detailsDialog);
             detailsDialog.showModal();
         })
     };
 
-    const editDetailsDialog = (title, detailsDialog) => {
-        const taskInformation = getTaskInformation(title)
+    const editDetailsDialog = (id, detailsDialog) => {
+        const taskInformation = getTaskInformation(id)
 
-        detailsDialog.querySelector(".title").textContent = title;
+        detailsDialog.querySelector(".title").textContent = taskInformation.title;
         detailsDialog.querySelector(".project-input").textContent = taskInformation.project;
         detailsDialog.querySelector(".priority-input").textContent = taskInformation.priority;
         detailsDialog.querySelector(".date-input").textContent = taskInformation.dueDate;
@@ -52,28 +52,29 @@ const taskInteractivity = (function () {
     const showModification = (task) => {
         const editDialog = document.querySelector(".dialog-edit");
         const editIcon = task.querySelector(".edit");
-        const title = task.querySelector(".title").textContent;
+        const taskId = task.getAttribute("data-task-id");
 
         editIcon.addEventListener("click", () => {
-            editModificationDialog(title, editDialog);
+            editModificationDialog(taskId, editDialog);
             editDialog.showModal();
         })
 
     };
 
-    const editModificationDialog = (title, editDialog) => {
-        const taskInformation = getTaskInformation(title);
+    const editModificationDialog = (id, editDialog) => {
+        const taskInformation = getTaskInformation(id);
 
-        editDialog.querySelector("#new-title").value = title;
+        editDialog.querySelector("#new-title").value = taskInformation.title;
         editDialog.querySelector("#new-details").value = taskInformation.details;
         editDialog.querySelector("#new-details").value = taskInformation.details;
         editDialog.querySelector("#date-row").value = taskInformation.dueDate;
         editDialog.querySelector(`#priority-${taskInformation.priority.toLowerCase()}-edit`).checked = true;
     };
 
-    const getTaskInformation = (title) => {
-        const task = stateActions.getTask(title);
+    const getTaskInformation = (id) => {
+        const task = stateActions.getTask(id);
 
+        const title = task.getTitle();
         const project = "None";
         const priority = task.getPriority();
         const dueDate = task.getDueDate();
@@ -81,6 +82,7 @@ const taskInteractivity = (function () {
         const status = task.getIsDone();
 
         return {
+            title,
             project,
             priority,
             dueDate,
@@ -98,8 +100,9 @@ const taskInteractivity = (function () {
     }
 
     const changeTaskStatus = (isChecked, taskDom) => {
-        const title = taskDom.querySelector(".title").textContent;
-        const taskBackend = stateActions.getTask(title);
+        const taskId = taskDom.getAttribute("data-task-id");
+
+        const taskBackend = stateActions.getTask(taskId);
 
         const strikethrough = document.createElement("div");
         strikethrough.classList.add("done");
