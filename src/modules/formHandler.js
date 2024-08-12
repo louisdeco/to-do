@@ -3,9 +3,11 @@ import render from "./render";
 import switchForm from "./switchForm";
 
 const formHandler = (function () {
-    const form = document.querySelector(".add-element")
+    const addForm = document.querySelector(".add-element");
     const addButton = document.querySelector(".add");
-    const dialog = document.querySelector(".dialog-form")
+    const addDialog = document.querySelector(".dialog-form");
+    const editForm = document.querySelector(".edit-element");
+    const editDialog = document.querySelector(".dialog-edit");
 
     const handleFormSubmission = (e) => {
         e.preventDefault();
@@ -21,7 +23,7 @@ const formHandler = (function () {
 
             stateActions.addTask(title, description, dueDate, priority);
             render.renderTasks();
-            dialog.close();
+            addDialog.close();
         }
 
         else if (projectForm && projectForm.style.display !== "none"){
@@ -29,19 +31,50 @@ const formHandler = (function () {
 
             stateActions.addProject(title);
             render.renderProjects();
-            dialog.close()       }
+            addDialog.close()       }
+    }
+
+    const handleEditSubmission = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+
+        const taskId = e.target.dataset.taskId;
+
+        const newTitle = formData.get("edit-title");
+        const newDetails = formData.get("edit-details");
+        const newDueDate = formData.get("edit-date");
+        const newPriority = formData.get("edit-priority");
+
+        editTask(taskId, newTitle, newDetails, newDueDate, newPriority);
+        
+        stateActions.saveTasks();
+        render.renderTasks();
+        editDialog.close();
+    }
+
+    const editTask = (taskId, newTitle, newDetails, newDueDate, newPriority) => {
+        const task = stateActions.getTask(taskId);
+
+        task.setTitle(newTitle);
+        task.setDescription(newDetails);
+        task.setDueDate(newDueDate);
+        task.setPriority(newPriority);
     }
 
     const init = () => {
-        form.addEventListener("submit", handleFormSubmission);
+        addForm.addEventListener("submit", handleFormSubmission);
+
         addButton.addEventListener("click", () => {
             switchForm.init();
-            form.reset();
-            dialog.showModal();
+            addForm.reset();
+            addDialog.showModal();
         });
+        
+        editForm.addEventListener("submit", handleEditSubmission)
     }
 
     return {init}
+
 })();
 
 export default formHandler;
