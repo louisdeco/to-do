@@ -54,8 +54,11 @@ const taskInteractivity = (function () {
         const editIcon = task.querySelector(".edit");
         const taskId = task.getAttribute("data-task-id");
 
+        const editForm = document.querySelector(".edit-element")
+
         editIcon.addEventListener("click", () => {
             editModificationDialog(taskId, editDialog);
+            editForm.dataset.taskId = taskId;
             editDialog.showModal();
         })
 
