@@ -1,10 +1,13 @@
-function projectModel (name) {
+function projectModel (name, id) {
     let _name = name;
+    let _id = id;
 
     const getName = () => _name;
     const setName = (newName) => {_name = newName;}
 
-    return {getName, setName};
+    const getId = () => _id;
+
+    return {getName, setName, getId};
 }
 
 export default projectModel;

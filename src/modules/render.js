@@ -29,9 +29,14 @@ const render = (function () {
     };
 
     const createProjectElement = (project) => {
-        const projectParagraph = document.createElement("p");
-        projectParagraph.textContent = project.getName();
-        return projectParagraph;
+        const projectDiv = document.createElement("div");
+        projectDiv.dataset.projectId = project.getId();
+        projectDiv.className = "project-element";
+        projectDiv.innerHTML = `
+            <p>${project.getName()}</p>
+            <div class="delete"></div>
+        `
+        return projectDiv;
     };
 
     const renderTasks = () => {
