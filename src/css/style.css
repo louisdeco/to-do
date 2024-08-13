@@ -125,6 +125,12 @@ header p {
     gap: var(--spacing-s);
 }
 
+.project-element {
+    display: flex;
+    gap: var(--spacing-m);
+    align-items: center;
+}
+
 .side-nav p:hover::before,
 .side-form p:hover::before {
     content: "//";
