@@ -35,8 +35,8 @@ const stateActions = (function () {
         localStorageService.saveState("tasks", _tasks.map(task => serializatorDeserializator.serializeTask(task)));
     };
 
-    const deleteProject = (name) => {
-        _projects = _projects.filter(project => project.getName() !== name);
+    const deleteProject = (id) => {
+        _projects = _projects.filter(project => project.getId() !== id);
         localStorageService.saveState("projects", _projects.map(project => serializatorDeserializator.serializeProject(project)));
     };
 
