@@ -24,12 +24,14 @@ const serializatorDeserializator = (function (task) {
     };
 
     const serializeProject = (project) => ({
-        name: project.getName()
+        name: project.getName(),
+        id: project.getId()
     })
 
     const deserializeProject = (projectSerialized) => {
         return projectModel(
-            projectSerialized.name
+            projectSerialized.name,
+            projectSerialized.id
         )
     }
 
