@@ -32,9 +32,9 @@ const render = (function () {
     const createProjectElement = (project) => {
         const projectDiv = document.createElement("div");
         projectDiv.dataset.projectId = project.getId();
-        projectDiv.className = "navigation project-element";
+        projectDiv.className = "project-element";
         projectDiv.innerHTML = `
-            <p>${project.getName()}</p>
+            <p class="navigation">${project.getName()}</p>
             <div class="delete"></div>
         `
         return projectDiv;
