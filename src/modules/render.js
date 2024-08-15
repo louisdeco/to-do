@@ -1,7 +1,7 @@
 import stateActions from "./stateActions";
 import taskInteractivity from "./taskInteractivy";
 import tabInteractivity from "./tabInteractivity";
-import {format} from "date-fns";
+import {format, isToday, isThisWeek, parseISO} from "date-fns";
 
 const render = (function () {
     const content = document.querySelector(".content");
@@ -42,8 +42,9 @@ const render = (function () {
 
     const renderTasks = () => {
         const tasks = stateActions.getTasks();
+        const filteredTasks = selectRelevantTasks(tasks)
         content.innerHTML = "";
-        tasks.forEach(task => {
+        filteredTasks.forEach(task => {
             const taskElement = createTaskElement(task);
             content.appendChild(taskElement);
         });
@@ -58,6 +59,28 @@ const render = (function () {
             projectContainer.appendChild(projectElement);
         });
         tabInteractivity.init();
+    };
+
+    const selectRelevantTasks = (tasks) => {
+        const currentTab = tabInteractivity.getCurrentTab();
+     
+        const taskFiltered = tasks.filter(task => {
+            const project = task.getProject();
+            const dueDate = parseISO(task.getDueDate());
+
+            if (currentTab === "Today" & (project === "Today" || project === "Week")) {
+                return isToday(dueDate);
+            }
+
+            else if (currentTab === "Week" & (project === "Today" || project === "Week")) {
+                return isThisWeek(dueDate, {weekStartsOn: 1});
+            }
+            
+            else
+            return currentTab === project;
+        })
+
+        return taskFiltered;
     };
 
     return {
