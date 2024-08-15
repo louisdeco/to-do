@@ -147,6 +147,15 @@ header p {
     cursor: pointer;
 }
 
+.current-tab:before {
+    content:"// "
+}
+
+.current-tab {
+    margin-right: 0.5rem;
+    font-weight: normal;
+}
+
 .add {
     height: calc(3.5rem + 1vw);
     width: calc(3.5rem + 1vw);
