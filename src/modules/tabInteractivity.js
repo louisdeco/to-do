@@ -35,6 +35,7 @@ const tabInteractivity = (function () {
             setCurrentTab(tabName);
             tabs.forEach(tab => tab.classList.remove("current-tab"));
             tabElement.classList.add("current-tab");
+            render.renderTasks();
         });
     };
 
