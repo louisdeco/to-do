@@ -68,7 +68,11 @@ const render = (function () {
             const project = task.getProject();
             const dueDate = parseISO(task.getDueDate());
 
-            if (currentTab === "Today" & (project === "Today" || project === "Week")) {
+            if (currentTab === "All") {
+                return true
+            }
+
+            else if (currentTab === "Today" & (project === "Today" || project === "Week")) {
                 return isToday(dueDate);
             }
 
