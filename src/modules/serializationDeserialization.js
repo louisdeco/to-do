@@ -9,6 +9,7 @@ const serializatorDeserializator = (function (task) {
         dueDate: task.getDueDate(),
         priority: task.getPriority(),
         id : task.getId(),
+        project: task.getProject(),
         isDone: task.getIsDone(),
     })
 
@@ -19,7 +20,8 @@ const serializatorDeserializator = (function (task) {
             taskSerialized.dueDate,
             taskSerialized.priority,
             taskSerialized.id,
-            taskSerialized.isDone
+            taskSerialized.project,
+            taskSerialized.isDone,
         )
     };
 
