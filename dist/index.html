@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do</title>
+</head>
+<body>
+    <header>
+        <p>// to-do</p>
+        <div class="icon"></div>
+    </header>
+    <div class="side-nav">
+        <div class="nav">
+            <p class="navigation">All</p>
+            <p class="navigation default">Today</p>
+            <p class="navigation">Week</p>
+            <p>Projects</p>
+            <div class="projects"></div>
+        </div>
+        <button class="add">+</button>
+    </div>
+    <div class="content"></div>
+    <dialog class="dialog-form">
+        <form class="add-element" method="dialog">
+            <div class="create">Create a new...</div>
+            <div class="side-form">
+                <p>Task</p>
+                <p>Project</p>
+            </div>
+            <div class="task-form">
+                <div class="upper-part-form">
+                    <textarea class="create-new-text" name="task-title" id="task-title" maxlength="60" placeholder="Title: Daily exercise"></textarea>
+                    <textarea class="create-new-text" name="task-details" id="task-details" placeholder="Details: e.g gym, run, foil."></textarea>
+                </div>
+                <div class="bottom-part-form">
+                    <div class="create-new-date">
+                        <label for="date-row" class="date-label">Due Date:</label>
+                        <input type="date" class="create-new-date" name="task-date" id="task-date">
+                    </div>
+                    <div class="priority-submit">
+                        <div class="create-new-priority">
+                            <legend class="priority-label">Priority:</legend>
+                            <input type="radio" name="task-priority" id="priority-low" value="Low"><label for="priority-low">LOW</label>
+                            <input type="radio" name="task-priority" id="priority-medium" value="Medium"><label for="priority-medium">MEDIUM</label>
+                            <input type="radio" name="task-priority" id="priority-high" value="High"><label for="priority-high">HIGH</label>
+                        </div>
+                        <button class="submit-form">ADD TO DO</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-form" style="display: none;">
+                <textarea class="create-new-text" name="project-title" id="project-title" maxlength="40" placeholder="Name: Modify the house"></textarea>
+                <button class="submit-form project">ADD PROJECT</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="dialog-details">
+        <div class="details title">clean the bedroom</div>
+        <div class="details project">Project:
+            <div class="project-input">None</div>
+        </div>
+        <div class="details priority">Priority:
+            <div class="priority-input">High</div>
+        </div>
+        <div class="details date">Date:
+            <div class="date-input">June 12th, 2024</div>
+        </div>
+        <div class="details informations">Details:
+            <div class="information-input">Don't forget under the bed!</div>
+        </div>
+    </dialog>
+    <dialog class="dialog-edit">
+        <form class="edit-element" method="dialog">
+            <div class="edit-form">
+                <div class="upper-part-form">
+                    <textarea class="create-new-text" name="edit-title" id="new-title" maxlength="60" placeholder="Title: Daily exercise" required></textarea>
+                    <textarea class="create-new-text" name="edit-details" id="new-details" placeholder="Details: e.g gym, run, foil." required></textarea>
+                </div>
+                <div class="bottom-part-form">
+                    <div class="create-new-date">
+                        <label for="date-row" class="date-label">Due Date:</label>
+                        <input type="date" class="create-new-date" name="edit-date" id="date-row" required>
+                    </div>
+                    <div class="priority-submit">
+                        <div class="create-new-priority">
+                            <legend class="priority-label">Priority:</legend>
+                            <input type="radio" name="edit-priority" id="priority-low-edit" value="Low"><label for="priority-low-edit">LOW</label>
+                            <input type="radio" name="edit-priority" id="priority-medium-edit" value="Medium"><label for="priority-medium-edit">MEDIUM</label>
+                            <input type="radio" name="edit-priority" id="priority-high-edit" value="High"><label for="priority-high-edit">HIGH</label>
+                        </div>
+                        <button class="submit-form">ADD TO DO</button>
+                    </div>
+                </div>
+            </div>
+        </form>        
+    </dialog>
+<script defer src="bundle.js"></script></body>
+</html>
